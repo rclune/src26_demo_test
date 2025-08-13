@@ -1,0 +1,37 @@
+"""Package docstring
+
+Note that docstrings still need to be written in ReST."""
+
+from collections import defaultdict
+from pprint import pprint
+from collections.abc import Mapping, Sequence
+from .subpackage import common_function
+from . import subpackage
+
+__all__ = [
+    "common_function",
+    "hello_world",
+    "DemoClass",
+    "DEMO_DATA",
+    "subpackage",
+]
+
+DEMO_DATA: str = "THIS IS A DEMONSTRATION"
+"""A demonstration"""
+
+def hello_world() -> None:
+    """Say "hello" to the world"""
+    pprint("hello, world!")
+
+class DemoClass(Mapping):
+    """Counts the number of each element in a sequence"""
+    def __init__(self, seq: Sequence[str]):
+        self._dict: defaultdict[str, int] = defaultdict(lambda: 0)
+        for elem in seq:
+            self._dict[elem] += 1
+
+    def __getitem__(self, key: str) -> int:
+        return self._dict[key]
+
+    def __len__(self) -> int:
+        return len(self._dict)
