@@ -1,6 +1,11 @@
 """Package docstring
 
-Note that docstrings still need to be written in ReST."""
+Note that docstrings still need to be written in ReST.
+
+Imported items will be documented if and only if they
+are included in the module ``__all__`` attribute. If there
+is no ``__all__`` attribute, only items defined in the
+module and named without a leading underscore are documented."""
 
 from collections import defaultdict
 from pprint import pprint
