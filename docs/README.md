@@ -16,27 +16,61 @@ Let's break this down:
 - `docs` is the source directory. 
 - `docs/_build/html` is the output directory where the generated HTML files will be stored
 
-The compiled docs will be in the `docs/_build/html/` directory and can be viewed by opening `index.html`.
+**The compiled docs will be in the `docs/_build/html/` directory and can be viewed by opening `index.html`.**
 
-## Hosting the documentation using Read The Docs
+## What's included:
+Before building: 
+- `_static`: a directory to contain any custom static files, see the [README](./_static/README.md) in this directory for more information.
+-  `_templates`: a directory with [JINJA2 templates](https://jinja.palletsprojects.com/en/stable/templates/) that tell Sphinx what the generated API documentation should look like
+- `conf.py`: This is the configuration file for the documentation. It contains any extensions that are being used to generate the documentation, any documentation themes that are being used, versioning and project information, and so much more. 
+- `index.md`: This file is where you tell Sphinx what to document. It has an autosummary directive, but any hand-written documentation will need to be noted here as well. (For example, the `myst-md-demo.md` document.)
+- `myst-md-demo.md`: Demonstrating how to use different Markdown capabilities to format and organize individual documentation pages.
+- `desert-flower.jpg`: Image used in the `myst-md-demo.md` example.
+
+After building: 
+- `api/generated`: a directory containing the files Sphinx generated based on its autosummary directive. (More information on this below.)
+- `_build`: a directory containing all other files Sphinx generated while building the documentation. Most notably, `_build/html` will have all of the static HTML files that were created.
+
+## Hosting the documentation...
+The pages generated using the command above are static HTML pages, for others to view them they need to be *hosted* somewhere. Here are a few options for hosting your docs: 
+
+### Using Read the Docs
 A configuration file for [Read The Docs](https://readthedocs.org/) (readthedocs.yaml) is included in the top level of the repository. To use Read the Docs to host your documentation, go to https://readthedocs.org/ and connect this repository. *You may need to change your default branch to `main` under Advanced Settings for the project.*
+
+### Using GitHub Pages
+You will need to create a workflow to deploy your documentation to a GitHub pages site and then adjust the settings in your repository to have them automatically update when changes are made to the main branch. This [tutorial](https://coderefinery.github.io/documentation/gh_workflow/) outlines the steps, though the workflow can be made much more sophsticated based on your project's needs. Learn more about GitHub workflows [here](https://docs.github.com/en/actions/how-tos/write-workflows). 
 
 ## Automatic API Documentation
 A configuration for automatically documenting [OpenFF](https://openforcefield.org/) software (as an example) with AutoSummary is included. The project is processed and documented as follows:
 
-1. A module (or package) is documented if and only if it satisfies all the following criteria:
-    1. Its parent module is documented, or it is the root module.
-    2. It is public (ie, its name does not begin with an underscore).
-    3. It is not listed in the `autosummary_context["exclude_modules"]` list in `conf.py`.
-2. If a documented module has a `__all__` attribute that is a list of strings, its members will be documented if and only if their names appear in `__all__`.
-3. If a documented module does not have `__all__`, all its members that satisfy all the following criteria will be documented:
+A module (or package) is documented if and only if it satisfies **all** the following criteria:
+1. Its parent module is documented, or it is the root module.
+2. It is public (ie, its name does not begin with an underscore).
+3. It is not listed in the `autosummary_context["exclude_modules"]` list in `conf.py`. (There is an example of this in `conf.py`!)
+
+The members of a module (package) are then only documented if:
+1. If a documented module has a `__all__` attribute that is a list of strings, its members will be documented if and only if their names appear in `__all__`. (See `src/my_project/__init__.py` for an example of this!)
+1. If a documented module does not have `__all__`, all its members that satisfy all the following criteria will be documented:
     1. The member is public (ie, its name does not begin with an underscore)
     2. The member is defined in the module rather than imported
-4. Any member of a documented class that satisfies all the following criteria will be documented:
+1. Any member of a documented class that satisfies all the following criteria will be documented:
     1. The member is public (ie, its name does not begin with an underscore)
     2. The member is defined in the class being documented (ie, it is not inherited)
 
-This means it is usually not necessary to define `__all__`, except in cases when you want an imported object to be accessible in the API at a different point to where it is defined, or you want to document a private object. To document an inherited method without changing its behavior, define it in the child class without a docstring:
+The term member here refers to functions, classes, submodules, module attributes/constants, etc. of the module.
+
+This means it is usually not necessary to define `__all__`, except in cases when you want an imported object to be accessible in the API at a different point to where it is defined, or you want to document a private object. It is considered best practice to use the `__all__` attribute to define all public members according to [PEP8](https://peps.python.org/pep-0008/#public-and-internal-interfaces). It is typical to find this attribute at the top of the file, PEP8 specifies that it should be after the module docstring but before any import statements except `from __future__`.
+
+**However** using the `__all__` attribute means that your new public member won't appear in the documentation if you forget to add it to the `__all__` attirbute in the correct module! This is why in practice you might see many projects not using this feature as typically it is obvious what should and should not be in the public API. 
+
+### How Sphinx's autodoc works
+This is just an overview of how autodoc works, for more information see the [Sphinx documentation](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html). 
+1. An autosummary directive must be written - see `docs/index.md` for an example.
+1. When building the docs autosummary imports whatever items are listed in the directive. In the case of the example provided in this repository, you'll see `my_project` listed in the autosummary directive in `docs/index.md` but there is a `:recursive` option meaning that the subpackage will be imported as well.
+1. For each item, a stub .rst page is generated based on the templates provided in `docs/_templates`. Thes pages may have autosummary directives within them that then recurse, generating more .rst page, you can find all of these in `docs/api/generated` once you have built the documentation locally.
+
+### Documenting an inherited method without changing its behavior:
+To document an inherited method without changing its behavior, define it in the child class without a docstring:
 
 ```python
 class foo(bar):
