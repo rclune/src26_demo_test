@@ -3,7 +3,7 @@ A documentation system that developers can easily transfer to their own projects
 
 ## What's included?
 In the root of the repository you will find: 
-- `docs` directory: This is where you will be adding any documentation that isn't automatically generated and changing how your external documentation is structured. This directory has its own [README](./docs/README.md#compiling-the-omsf-demonstration-documentation) with information about building the docs, automatically creating API documentation, and hosting your documentation. 
+- `docs` directory: This is where you will be adding any documentation that isn't automatically generated and changing how your external documentation is structured. It also includes a folder of templates for different types of documentation to help you get started. This directory has its own [README](./docs/README.md#compiling-the-omsf-demonstration-documentation) with information about building the docs, automatically creating API documentation, and hosting your documentation. 
 - `src/my_project` directory: This contains some examples to show off the API documentation capabilities of Sphinx. 
 - `pyproject.toml`: Example TMOL configuration file for a python package, see [this resource](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#writing-pyproject-toml) for more information on Python Packaging. 
 - `readthedocs.yaml`: This is a configuration file for Read the Docs, this is one option for hosting your documentation. There is more information about how to do this in the README in the `docs` folder. 
@@ -30,6 +30,12 @@ See GitHub's documentation on [Duplicating a repository](https://docs.github.com
     You can directly copy the contents of this project into your project repository, though you should make sure the copy won't overwrite anything you'd like to keep. Make sure to update the `pyproject.toml`, `conf.py`, and `index.md` with information for your specific project.
     
 </details>
+
+Once you have your docs set up in your project repository you can start adding documentation for your project. 
+
+For automatically generated API documentation, you will need to write docstrings for all members of your module, there are more instructions for how to do this in the README in the `docs` folder. 
+
+For all other documentation you will need to create a new `.md` file directly in the `docs` directory, write up whatever you would like to document using Markdown (see the [next section](#markdown-and-restructuredtext)) and then add it to the TOC section of `docs/index.md`. There's a comment in `docs/index.md` to show you where to point to your new files. 
 
 ## Markdown and reStructuredText
 Sphinx natively uses reStructuredText (RST or reST) as its markup language, however, Markdown is more ubiquitous and many find it easier to use and learn. Due to this, all of the documentation files included here are Markdown (.md) files and a package, [myst-parser](https://myst-parser.readthedocs.io/en/latest/intro.html) is used so that Sphinx can still generate the static documentation pages. 

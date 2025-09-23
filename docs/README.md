@@ -24,12 +24,28 @@ Before building:
 -  `_templates`: a directory with [JINJA2 templates](https://jinja.palletsprojects.com/en/stable/templates/) that tell Sphinx what the generated API documentation should look like
 - `conf.py`: This is the configuration file for the documentation. It contains any extensions that are being used to generate the documentation, any documentation themes that are being used, versioning and project information, and so much more. 
 - `index.md`: This file is where you tell Sphinx what to document. It has an autosummary directive, but any hand-written documentation will need to be noted here as well. (For example, the `myst-md-demo.md` document.)
+- `doc_templates`: This contains several templates to help guide your documentation writing process. See the [Documentation Templates](#documentation-templates) section below to learn more.
 - `myst-md-demo.md`: Demonstrating how to use different Markdown capabilities to format and organize individual documentation pages.
 - `desert-flower.jpg`: Image used in the `myst-md-demo.md` example.
 
 After building: 
 - `api/generated`: a directory containing the files Sphinx generated based on its autosummary directive. (More information on this below.)
 - `_build`: a directory containing all other files Sphinx generated while building the documentation. Most notably, `_build/html` will have all of the static HTML files that were created.
+
+## Documentation Templates
+
+The `docs/doc_templates` folder contains several templates to help you think about and organize your external documentation. With some exceptions, using these is as simple as 
+1. Copying them into the `docs` directory
+1. Renaming the file (you probably want to remove the 'template' part of the file name)
+1. Filling out what you would like to put there 
+1. Listing them in `docs/index.md` so that they appear in the table of contents in your external documentation 
+
+There are a few exceptions:
+1. The README_template.md should be copied to your root directory (or anywhere else a README would be useful). Notice that `docs/index.md` already includes the README in the root directory.
+1. If you have automatically generated API documentation you likely do not need to use the reference_table.md template. This is just an example of how to make a nicely formatted table in Markdown and is useful for if your tool usage does not rely on the API. 
+1. There are two different templates in `docs/doc_templates/tutorial_templates` depending on how you would like to showcase your tutorial:
+    - As a markdown file
+    - As a python notebook, this [tutorial](https://docs.readthedocs.com/platform/latest/guides/jupyter.html) is a great resource for learning how to embed notebooks into your documentation. 
 
 ## Hosting the documentation...
 The pages generated using the command above are static HTML pages, for others to view them they need to be *hosted* somewhere. Here are a few options for hosting your docs: 

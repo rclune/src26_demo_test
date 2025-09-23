@@ -15,6 +15,10 @@ hidden: true
 Overview <self>
 myst-md-demo.md
 :::
+<!--
+Add any new (not automatically generated) documentation files above the :::
+in the order you would like to have them appear in the TOC.
+-->
 
 <!--
 The autosummary directive renders to rST,
