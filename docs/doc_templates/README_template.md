@@ -39,31 +39,31 @@ This template is just a guide for what is most useful for most projects - some s
 <a id="prerequisites"></a>
 
 **Prerequisites**  
-*List all system and software requirements before installation. These may include:*
+List all system and software requirements before installation. These may include:
 - Operating systems supported:
 - Hardware requirements (GPU support, minimum RAM):
 - Software requirements:
-    - *Programming language version*
-    - *Required compilers or interpreters*
-    - *Package managers*
-    - *tools/libraries*
-    - *You can also point to a file (e.g. requirements.txt) that lists any software dependencies.*
+    - Programming language version
+    - Required compilers or interpreters
+    - Package managers
+    - Tools/libraries
+    - You can also point to a file (e.g. requirements.txt) that lists any software dependencies.
 
 <a id="installation-methods"></a>
 
 **Installation Methods**  
-*Include instructions for how to install. Different options include but are not limited to:*
-- *pip/conda*
-- *From source through cloning repository* 
-- *Using docker image*
-- *Precompiled binaries*
+Include instructions for how to install. Different options include but are not limited to:
+- pip/conda
+- From source through cloning repository
+- Using docker image
+- Precompiled binaries
 
 <a id="post-installation-setup"></a>
 
 **Post-Installation Setup**  
-*Is there anything else the user needs to do before running the software?*
-- *Add PATH or set environment variables*
-- *Activate conda or virtual environment*
+Is there anything else the user needs to do before running the software?
+- Add PATH or set environment variables
+- Activate conda or virtual environment
 
 
 ### Usage
