@@ -9,13 +9,14 @@ In the root of the repository you will find:
 - `readthedocs.yaml`: This is a configuration file for Read the Docs, this is one option for hosting your documentation. There is more information about how to do this in the README in the `docs` folder. 
 
 ## Intended usage
-```{note}
-There are some files included in this repository as examples and they do not need to be copied or kept in your project repository for the documentation to build. These files include: 
+> **Note**
+> 
+> There are some files included in this repository as examples and they do not need to be copied or kept in your project repository for the documentation to build. These files include: 
+>
+> - Anything in the `src/my_project` directory (though the docs do assume an `src/project_name` structure.)
+> - `docs/desert-flower.jpg`
+> - `docs/myst-md-demo.md`
 
-    - Anything in the ``src/my_project`` directory (though the docs do assume an ``src/project_name`` structure.)
-    - ``docs/desert-flower.jpg``
-    - ``docs/myst-md-demo.md``
-```
 <details>
 <summary><strong> Starting a Completely New Project </strong></summary>
 
