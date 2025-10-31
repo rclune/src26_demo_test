@@ -19,7 +19,7 @@ hidden: true
 ---
 
 Overview <self>
-readme_link.md
+readme_link.rst
 myst-md-demo.md
 
 :::

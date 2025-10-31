@@ -3,14 +3,14 @@ A documentation system that developers can easily transfer to their own projects
 
 ## What's included?
 In the root of the repository you will find: 
-- `docs` directory: This is where you will be adding any documentation that isn't automatically generated and changing how your external documentation is structured. It also includes a folder of templates for different types of documentation to help you get started. This directory has its own [README](./docs/README.md#compiling-the-omsf-demonstration-documentation) with information about building the docs, automatically creating API documentation, and hosting your documentation. 
+- `docs` directory: This is where you will be adding any documentation that isn't automatically generated and changing how your external documentation is structured. It also includes a folder of templates for different types of documentation to help you get started. This directory has its own [README](https://github.com/rclune/OMSF_docs_template/blob/main/docs/README.md) with information about building the docs, automatically creating API documentation, and hosting your documentation. 
 - `src/my_project` directory: This contains some examples to show off the API documentation capabilities of Sphinx. 
 - `pyproject.toml`: Example TMOL configuration file for a python package, see [this resource](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#writing-pyproject-toml) for more information on Python Packaging. 
 - `readthedocs.yaml`: This is a configuration file for Read the Docs, this is one option for hosting your documentation. There is more information about how to do this in the README in the `docs` folder. 
 
 ## Intended usage
-```{eval-rst}
-.. note:: There are some files included in this repository as examples and they do not need to be copied or kept in your project repository for the documentation to build. These files include: 
+```{note}
+There are some files included in this repository as examples and they do not need to be copied or kept in your project repository for the documentation to build. These files include: 
 
     - Anything in the ``src/my_project`` directory (though the docs do assume an ``src/project_name`` structure.)
     - ``docs/desert-flower.jpg``
@@ -49,6 +49,6 @@ There may be some situations in which knowing some of the capabilities of RST is
 If you're willing to learn some HTML/CSS you can do even fancier stuff with your documentation, but that is outside the scope of this project. 
 
 ## Docstring formats
-The automatically generated API documentation relies on docstrings to know what to write. There are examples of docstrings provided in the `src/my_project` directory. There are many different types of docstring formats ([Sphinx](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html), [Google](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html), [Numpy](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html#example-numpy), etc.), but the examples included in this repo use the Sphinx format as using other formats requires [Sphinx's napoleon extension](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html). 
+The automatically generated API documentation relies on docstrings to know what to write. There are examples of docstrings provided in the `src/my_project` directory. There are many different types of docstring formats ([Sphinx](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html), [Google](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html), [Numpy](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html#example-numpy), etc.), but the examples included in this repo use the Sphinx format. The documentation setup here can also render Numpy docstrings using [Sphinx's napoleon extension](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html), if you would like to use Google docstrings intead, change the booleans `napoleon_numpy_docstring`, and `napoleon_google_docstring` in `docs/conf.py`. 
 
 The choice of docstring format is entirely up to you, what's most important is maintaining consistency across functions, classes and files!
