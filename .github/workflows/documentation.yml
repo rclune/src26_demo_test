@@ -16,7 +16,7 @@ jobs:
           pip install sphinx myst_parser furo sphinx-notfound-page
       - name: Sphinx build
         run: |
-          sphinx-build -j auto -b html docs docs/_build/html
+          uv run sphinx-build -j auto -b html docs docs/_build/html
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
