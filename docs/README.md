@@ -16,7 +16,7 @@ Let's break this down:
 - `docs` is the source directory. 
 - `docs/_build/html` is the output directory where the generated HTML files will be stored
 
-**The compiled docs will be in the `docs/_build/html/` directory and can be viewed by opening `index.html`.**
+**The compiled docs will be in the `docs/_build/html/` directory and can be viewed by opening `index.html`.** You can also view the built docs by looking at the GitHub Pages site for this repository: [http://omsf.io/OMSF_docs_template/](http://omsf.io/OMSF_docs_template/)
 
 ## What's included:
 Before building: 
@@ -54,7 +54,7 @@ The pages generated using the command above are static HTML pages, for others to
 A configuration file for [Read The Docs](https://readthedocs.org/) (readthedocs.yaml) is included in the top level of the repository. To use Read the Docs to host your documentation, go to https://readthedocs.org/ and connect this repository. *You may need to change your default branch to `main` under Advanced Settings for the project.*
 
 ### Using GitHub Pages
-You will need to create a workflow to deploy your documentation to a GitHub pages site and then adjust the settings in your repository to have them automatically update when changes are made to the main branch. This [tutorial](https://coderefinery.github.io/documentation/gh_workflow/) outlines the steps, though the workflow can be made much more sophsticated based on your project's needs. Learn more about GitHub workflows [here](https://docs.github.com/en/actions/how-tos/write-workflows). 
+You will need to create a workflow (you can find an example [here](https://github.com/omsf/OMSF_docs_template/blob/main/.github/workflows/documentation.yml)) to deploy your documentation to a GitHub pages site and then adjust the settings in your repository to have them automatically update when changes are made to the main branch. This [tutorial](https://coderefinery.github.io/documentation/gh_workflow/) outlines the steps, though the workflow can be made much more sophsticated based on your project's needs. Learn more about GitHub workflows [here](https://docs.github.com/en/actions/how-tos/write-workflows). 
 
 ## Automatic API Documentation
 A configuration for automatically documenting [OpenFF](https://openforcefield.org/) software (as an example) with AutoSummary is included. The project is processed and documented as follows:
