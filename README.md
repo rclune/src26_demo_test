@@ -56,4 +56,4 @@ The automatically generated API documentation relies on docstrings to know what 
 The choice of docstring format is entirely up to you, what's most important is maintaining consistency across functions, classes and files!
 
 ## Continuous Integration
-The tests found in the `test/` directory can be ran locally, but they are also ran on GitHub runners when a pull request is opened. This is setup using the workflow found at `.github/workflows/tests.yml`. 
+The tests found in the `tests/` directory can be run locally with `uv run pytest`, but they are also run on GitHub runners on every push and pull request. This is set up using the workflow found at `.github/workflows/tests.yml`. 
