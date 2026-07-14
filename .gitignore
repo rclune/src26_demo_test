@@ -1,0 +1,11 @@
+.venv/
+docs/_build/
+docs/api/generated/
+__pycache__/
+uv.lock
+
+# macOS Finder files
+.DS_store
+
+# Emacs autosave and backup files
+\#*\#
