@@ -7,6 +7,7 @@ In the root of the repository you will find:
 - `src/my_project` directory: This contains some examples to show off the API documentation capabilities of Sphinx. 
 - `pyproject.toml`: Example TMOL configuration file for a python package, see [this resource](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#writing-pyproject-toml) for more information on Python Packaging. 
 - `readthedocs.yaml`: This is a configuration file for Read the Docs, this is one option for hosting your documentation. There is more information about how to do this in the README in the `docs` folder. 
+- `tests/test_my_project.py`: This contains some simple tests written with the [pytest framework](https://docs.pytest.org/en/stable/). 
 
 ## Intended usage
 > **Note**
@@ -53,3 +54,6 @@ If you're willing to learn some HTML/CSS you can do even fancier stuff with your
 The automatically generated API documentation relies on docstrings to know what to write. There are examples of docstrings provided in the `src/my_project` directory. There are many different types of docstring formats ([Sphinx](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html), [Google](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html), [Numpy](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html#example-numpy), etc.), but the examples included in this repo use the Sphinx format. The documentation setup here can also render Numpy docstrings using [Sphinx's napoleon extension](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html), if you would like to use Google docstrings intead, change the booleans `napoleon_numpy_docstring`, and `napoleon_google_docstring` in `docs/conf.py`. 
 
 The choice of docstring format is entirely up to you, what's most important is maintaining consistency across functions, classes and files!
+
+## Continuous Integration
+The tests found in the `tests/` directory can be run locally with `uv run pytest`, but they are also run on GitHub runners on every push and pull request. This is set up using the workflow found at `.github/workflows/tests.yml`. 
