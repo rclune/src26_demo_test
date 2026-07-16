@@ -9,3 +9,6 @@ uv.lock
 
 # Emacs autosave and backup files
 \#*\#
+
+Dockerfile
+Dockerfile~

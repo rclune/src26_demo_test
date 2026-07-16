@@ -7,36 +7,21 @@ are included in the module ``__all__`` attribute. If there
 is no ``__all__`` attribute, only items defined in the
 module and named without a leading underscore are documented."""
 
-from collections import defaultdict
-from pprint import pprint
-from collections.abc import Mapping, Sequence
-from .subpackage import common_function
+from .histogram import Histogram, calculate_g_of_r
+from .subpackage import (
+    compute_forces_and_potential,
+    draw_config,
+    init_config,
+    plot_circle,
+)
 from . import subpackage
 
 __all__ = [
-    "common_function",
-    "hello_world",
-    "DemoClass",
-    "DEMO_DATA",
+    "Histogram",
+    "calculate_g_of_r",
+    "compute_forces_and_potential",
+    "draw_config",
+    "init_config",
+    "plot_circle",
     "subpackage",
 ]
-
-DEMO_DATA: str = "THIS IS A DEMONSTRATION"
-"""A demonstration"""
-
-def hello_world() -> None:
-    """Say "hello" to the world"""
-    pprint("hello, world!")
-
-class DemoClass(Mapping):
-    """Counts the number of each element in a sequence"""
-    def __init__(self, seq: Sequence[str]):
-        self._dict: defaultdict[str, int] = defaultdict(lambda: 0)
-        for elem in seq:
-            self._dict[elem] += 1
-
-    def __getitem__(self, key: str) -> int:
-        return self._dict[key]
-
-    def __len__(self) -> int:
-        return len(self._dict)
