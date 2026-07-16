@@ -1,0 +1,40 @@
+.. raw:: html
+
+   <div style="display: None;">
+
+``Histogram``
+=============
+
+.. raw:: html
+
+   </div>
+
+
+.. currentmodule:: my_project
+
+.. autoclass:: Histogram
+   :members:
+   :member-order: alphabetical  
+   :undoc-members:
+   :show-inheritance:
+   
+
+   
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Histogram.add_sample
+      ~Histogram.barplot
+      ~Histogram.lineplot
+      ~Histogram.normalize
+   
+   
+
+   
+
+   
+   

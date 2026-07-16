@@ -1,0 +1,8 @@
+``calculate_g_of_r``
+====================
+
+
+.. currentmodule:: my_project
+
+.. autofunction:: calculate_g_of_r
+    

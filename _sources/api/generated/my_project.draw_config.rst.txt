@@ -1,0 +1,8 @@
+``draw_config``
+===============
+
+
+.. currentmodule:: my_project
+
+.. autofunction:: draw_config
+    

@@ -1,0 +1,8 @@
+``compute_forces_and_potential``
+================================
+
+
+.. currentmodule:: my_project
+
+.. autofunction:: compute_forces_and_potential
+    

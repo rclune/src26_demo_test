@@ -1,0 +1,36 @@
+``subpackage``
+==============
+
+
+.. automodule:: my_project.subpackage
+
+   
+   
+   
+
+   
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :caption: Functions
+      :toctree:
+      :nosignatures:
+   
+      compute_forces_and_potential
+      draw_config
+      init_config
+      plot_circle
+   
+   
+
+   
+
+   
+   
+
+   
+   
+   
+

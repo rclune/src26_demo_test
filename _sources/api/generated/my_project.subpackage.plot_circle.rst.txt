@@ -1,0 +1,8 @@
+``plot_circle``
+===============
+
+
+.. currentmodule:: my_project.subpackage
+
+.. autofunction:: plot_circle
+    

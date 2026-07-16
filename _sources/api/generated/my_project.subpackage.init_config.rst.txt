@@ -1,0 +1,8 @@
+``init_config``
+===============
+
+
+.. currentmodule:: my_project.subpackage
+
+.. autofunction:: init_config
+    

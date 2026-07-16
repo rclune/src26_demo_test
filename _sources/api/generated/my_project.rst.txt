@@ -1,0 +1,57 @@
+﻿``my_project``
+==============
+
+
+.. automodule:: my_project
+
+   
+   
+   .. rubric:: Modules
+
+   .. autosummary::
+      :caption: Modules
+      :toctree:
+      :recursive:
+   
+      ~subpackage
+   
+
+   
+   
+
+   
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :caption: Functions
+      :toctree:
+      :nosignatures:
+   
+      calculate_g_of_r
+      compute_forces_and_potential
+      draw_config
+      init_config
+      plot_circle
+   
+   
+
+   
+
+   
+   .. rubric:: Other Objects
+
+   .. autosummary::
+      :caption: Other Objects
+      :toctree:
+      :nosignatures:
+   
+      Histogram
+   
+   
+
+   
+   
+   
+
