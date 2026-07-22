@@ -10,7 +10,6 @@ from numpy import *
 from numpy.linalg import *
 from numpy.random import *
 from matplotlib.pyplot import *
-from scipy.special import binom, erf, erfc
 
 class histogram():
     def __init__(self,limits,binwidth):

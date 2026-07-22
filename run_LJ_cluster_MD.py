@@ -27,7 +27,7 @@ k_coll = 1  # particle collision rate
 # get initial configuration of particles
 r = init_config(N)
 v = np.zeros((N, 2))
-draw_config(N, box_length, np.copy(r))
+draw_config(N, box_length, np.copy(r), save=True, save_dir="for_gif")
 
 # calculate the forces on the initial system
 forces, potential_energy, distances = compute_forces_and_potential(N, r, box_length, r_cut_squared)
@@ -61,7 +61,7 @@ for step in range(N_steps):
             v[i, :] = speed * np.array([np.cos(angle), np.sin(angle)])
 
     if step % 1000 == 0:
-        draw_config(N, box_length, np.copy(r))
+        draw_config(N, box_length, np.copy(r), save=True, save_dir="for_gif")
 
 # radial distribution function
 rdf = calculate_g_of_r(hist, N, density, N_steps)

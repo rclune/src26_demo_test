@@ -4,6 +4,8 @@ Geometry and dynamics utilities for a 2-D Lennard-Jones cluster simulated
 under periodic boundary conditions with velocity-Verlet integration.
 """
 
+import os
+
 import numpy as np
 import numpy.typing as npt
 import matplotlib.pyplot as plt
@@ -34,7 +36,13 @@ def plot_circle(center: FloatArray, radius: float) -> None:
     plt.plot(x, y, "k", linewidth=2)
 
 
-def draw_config(N: int, box_length: float, r: FloatArray) -> None:
+def draw_config(
+    N: int,
+    box_length: float,
+    r: FloatArray,
+    save: bool = False,
+    save_dir: str = ".",
+) -> None:
     """Draw all particles and the periodic box boundary.
 
     Positions in ``r`` are wrapped into the primary box (in place) before
@@ -47,6 +55,14 @@ def draw_config(N: int, box_length: float, r: FloatArray) -> None:
     :type box_length: float
     :param r: Particle positions, shape ``(N, 2)``. Wrapped in place.
     :type r: FloatArray
+    :param save: Optional; if ``True``, save each drawn configuration as a
+        PNG file, numbered sequentially in call order. Defaults to
+        ``False``.
+    :type save: bool
+    :param save_dir: Optional; directory in which to save PNG files when
+        ``save`` is ``True``. Created if it does not already exist.
+        Defaults to the current directory.
+    :type save_dir: str
     """
     plt.clf()
     for i in range(N):
@@ -63,6 +79,15 @@ def draw_config(N: int, box_length: float, r: FloatArray) -> None:
     plt.plot(boundary_x, boundary_y)
 
     plt.pause(0.01)
+
+    if save:
+        os.makedirs(save_dir, exist_ok=True)
+        draw_config.frame_count += 1
+        filename = os.path.join(save_dir, f"frame_{draw_config.frame_count:04d}.png")
+        plt.savefig(filename)
+
+
+draw_config.frame_count = 0
 
 
 def init_config(N: int) -> FloatArray:
